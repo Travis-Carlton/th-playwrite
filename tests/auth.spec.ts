@@ -29,4 +29,20 @@ test.describe('Auth app', () => {
 		await login.assertLoginFailed();
 	});
 
+	test('PW-AUTH-03 storage state can access protected route', async ({ browser }) => {
+		if (!fs.existsSync(storageStatePath)) {
+			throw new Error('Missing storage state. Run PW-AUTH-01 first.');
+		}
+
+		const context = await browser.newContext({ storageState: storageStatePath });
+		const page = await context.newPage();
+
+		await page.goto('http://localhost:3000/protected');
+
+		await expect(page).toHaveURL(/\/protected/);
+		await expect(page.locator('body')).toContainText(/protected/i);
+
+		await context.close();
+	});
+
 });

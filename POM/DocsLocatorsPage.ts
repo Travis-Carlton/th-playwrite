@@ -2,9 +2,7 @@ import { expect } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
 
 export class DocsLocatorsPage {
-	constructor(readonly page: Page) {
-		this.page = page;
-	}
+	constructor(readonly page: Page) {}
 
 	heading(): Locator {
 		return this.page.getByRole('heading', { name: 'Locators', exact: true });

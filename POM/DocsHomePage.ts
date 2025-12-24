@@ -2,9 +2,7 @@ import { expect } from '@playwright/test';
 import type { Locator, Page } from '@playwright/test';
 
 export class DocsHomePage {
-	constructor(readonly page: Page) {
-		this.page = page;
-	}
+	constructor(readonly page: Page) {}
 
 	async goto(): Promise<void> {
 		await this.page.goto('https://playwright.dev/');

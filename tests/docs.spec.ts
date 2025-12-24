@@ -42,4 +42,12 @@ test.describe('Playwright docs site', () => {
 		const main = page.locator('main');
 		await expect(main).toHaveScreenshot('docs-main.png');
 	});
+
+	test('PW-DOC-05 release notes Get Started menu is collapsed', async ({ page }) => {
+		const releaseNotes = new ReleaseNotesPage(page);
+
+		await releaseNotes.goto();
+		await releaseNotes.collapseGetStartedMenu();
+		await releaseNotes.assertGetStartedMenuCollapsed();
+	});
 });
