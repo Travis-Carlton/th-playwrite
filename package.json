@@ -1,0 +1,23 @@
+{
+  "name": "th-playwrite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "playwright test",
+    "test-headed": "playwright test --headed",
+    "update-snapshots": "playwright test --update-snapshots",
+    "test-docs": "playwright test tests/docs.spec.ts",
+    "test-auth": "playwright test tests/auth.spec.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.3"
+  }
+}
